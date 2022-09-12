@@ -1,8 +1,9 @@
 import React from "react";
 import { Radio } from "@material-tailwind/react";
+import { Checkbox } from "@material-tailwind/react";
 import { Input } from "@material-tailwind/react";
 import {
-  IoBagHandleOutline,
+  IoAlbumsOutline,
   IoAlertCircleOutline,
   IoCubeOutline,
 } from "react-icons/io5";
@@ -22,7 +23,7 @@ function OtherInfo({ formData, setFormData }) {
         <div className="flex justify-between items-center cursor-pointer">
           <div className="flex justify-center items-center gap-2">
             <div className="p-2 rounded-md bg-teal-50">
-              <IoBagHandleOutline className="text-2xl text-teal-500" />
+              <IoAlbumsOutline className="text-2xl text-teal-500" />
             </div>
             <h3 className="text-lg">Physical Goods</h3>
           </div>

@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-import SignUpInfo from "./SignUpInfo";
-import PersonalInfo from "./PersonalInfo";
+import SiteInfo from "./SiteInfo";
+import StoreType from "./StoreType";
+import Category from "./Category";
 import RegisterUser from "./RegisterUser";
-import OtherInfo from "./OtherInfo";
+import Type from "./Type";
 import { FaAngleLeft } from "react-icons/fa";
-import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useRouter } from 'next/router'
-
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 function Form() {
-
-  const router = useRouter()
+  const router = useRouter();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
     name: "",
-    category:"",
+    category: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -27,13 +26,9 @@ function Form() {
     site_type: "",
   });
 
-
-
   const handleRegister = (params, errorCallback) => {
-
-
     axios
-      .post( process.env.NEXT_PUBLIC_API_ENDPOINT , {
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, {
         query: `
         mutation {
           userCreate(data: {
@@ -54,138 +49,139 @@ function Form() {
               updated_at
           }
       }
-          `
+          `,
       })
-      .then(res => {
+      .then((res) => {
         if (res.data.errors) {
           // if (errorCallback) errorCallback(res.data.errors)
-          toast.error('Error : Something went wrong!', {
-            position: toast.POSITION.TOP_RIGHT
-        });
+          toast.error("Error : Something went wrong!", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
         } else {
-
-          toast.success('Your account has created successfully !', {
-            position: toast.POSITION.TOP_RIGHT
-        });
+          toast.success("Your account has created successfully !", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
 
           handleCreateSite();
 
-        setTimeout(
-          () => router.push('/')
-          , 
-          2000
-        );
+          setTimeout(() => router.push("/"), 2000);
 
-         // handleLogin({ email: params.email, password: params.password })
+          // handleLogin({ email: params.email, password: params.password })
         }
       })
-      .catch(err => (errorCallback ? errorCallback(err) : null))
-
-      
-  }
+      .catch((err) => (errorCallback ? errorCallback(err) : null));
+  };
 
   const handleCreateSite = (params, errorCallback) => {
-    
     axios({
-      url:  process.env.NEXT_PUBLIC_API_ENDPOINT ,
-      method: 'post',
-      data:{    
- 
-    query: `
+      url: process.env.NEXT_PUBLIC_API_ENDPOINT,
+      method: "post",
+      data: {
+        query: `
         mutation {
           settingUpdateOrCreate(data:{site_name: "${formData.name}", site_category: "${formData.category}", site_type: "${formData.site_type}"}) {site_name, site_category, site_type}}
-          `
-        
-
-    }
-      }).then((result) => {      
-        console.log(result)
-
-    }).catch(err => {
-      if (errorCallback) errorCallback(err)
+          `,
+      },
     })
-  }
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        if (errorCallback) errorCallback(err);
+      });
+  };
 
   const FormTitles = [
     "What would you like to name your site?",
-    "Choose Your Category",
-    "Signup",
+    "Store Type",
+    "Types of goods",
+    "Choose your business category",
+    "Sign Up",
   ];
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <SignUpInfo formData={formData} setFormData={setFormData} />;
+      return <SiteInfo formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
-      return <PersonalInfo formData={formData} setFormData={setFormData} />;
-    }
-    //  else if (page === 2) {
-    //   return <RegisterUser formData={formData} setFormData={setFormData} />;
-    // }
-     else {
+      return <StoreType formData={formData} setFormData={setFormData} />;
+    } else if (page === 2) {
+      return <Type formData={formData} setFormData={setFormData} />;
+    } else if (page === 3) {
+      return <Category formData={formData} setFormData={setFormData} />;
+    } else {
       return <RegisterUser formData={formData} setFormData={setFormData} />;
 
-      // return <OtherInfo formData={formData} setFormData={setFormData} />;
+      // return <Type formData={formData} setFormData={setFormData} />;
     }
   };
 
   return (
-
-  <><ToastContainer />
-  <div className="bg h-screen w-screen flex flex-col justify-center items-center ">
-      <div className="form-container w-11/12 md:w-2/5 h-3/5 md:h-3/4 bg-white rounded-md shadow-2xl flex flex-col p-8 md:p-12">
-        <div className="bg-gray-300 rounded-md w-full h-2">
-          <div
-            className="rounded-md w-1/3 h-2 bg-green-500"
-            style={{
-              width: page === 0 ? "33.3%" : page == 1 ? "66.6%" : "100%",
-            }}
-          ></div>
-        </div>
-        <div className="text-2xl font-semibold mt-10 mb-4">
-          <h1>{FormTitles[page]}</h1>
-        </div>
-        <div className="body">{PageDisplay()}</div>
-        <div className="flex justify-between mt-5">
-          <button
-            className="flex items-center gap-1 cursor-pointer"
-            disabled={page == 0}
-            onClick={() => {
-              setPage((currPage) => currPage - 1);
-            } }
-          >
-            <FaAngleLeft />
-            <span>Prev</span>
-          </button>
-          <div className="flex justify-between gap-5">
+    <>
+      <ToastContainer />
+      <div className="bg h-screen w-screen flex flex-col justify-center items-center ">
+        <div className="form-container fadeIn w-11/12 md:w-2/5 h-4/6 md:h-3/4 bg-white rounded-xl shadow-2xl flex flex-col p-8 md:p-12">
+          <div className="bg-gray-300 rounded-md w-full h-2">
+            <div
+              className="rounded-md w-1/3 h-2 bg"
+              style={{
+                width:
+                  page === 0
+                    ? "20%"
+                    : page == 1
+                    ? "40%"
+                    : page == 2
+                    ? "60%"
+                    : page == 3
+                    ? "80%"
+                    : "100%",
+              }}
+            ></div>
+          </div>
+          <div className="text-2xl font-semibold mt-10 mb-4 capitalize">
+            <h1>{FormTitles[page]}</h1>
+          </div>
+          <div className="body">{PageDisplay()}</div>
+          <div className="flex justify-between mt-5">
             <button
-              className="cursor-pointer text-black bg-gray-50 border-0 py-2 px-3 focus:outline-none hover:bg-gray-100 rounded "
-              disabled={page == 2}
+              className="flex items-center gap-1 cursor-pointer"
+              disabled={page == 0}
               onClick={() => {
-                setPage((currPage) => currPage + 1);
-              } }
+                setPage((currPage) => currPage - 1);
+              }}
             >
-              Skip
+              <FaAngleLeft />
+              <span>Prev</span>
             </button>
-            <button
-              className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
-              onClick={() => {
-                if (page === FormTitles.length - 1) {
-                  handleRegister();
-
-                  console.log(formData);
-                } else {
+            <div className="flex justify-between gap-5">
+              <button
+                className="cursor-pointer text-black bg-gray-50 border-0 py-2 px-3 focus:outline-none hover:bg-gray-100 rounded "
+                disabled={page == 4}
+                onClick={() => {
                   setPage((currPage) => currPage + 1);
-                }
-              } }
-            >
-              {page === FormTitles.length - 1 ? "Submit" : "Next"}
-            </button>
+                }}
+              >
+                Skip
+              </button>
+              <button
+                className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
+                onClick={() => {
+                  if (page === FormTitles.length - 1) {
+                    handleRegister();
+
+                    console.log(formData);
+                  } else {
+                    setPage((currPage) => currPage + 1);
+                  }
+                }}
+              >
+                {page === FormTitles.length - 1 ? "Submit" : "Next"}
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div></>
+    </>
   );
-
 }
 
 export default Form;

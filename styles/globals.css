@@ -6,32 +6,49 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.h2 {
+  @apply text-3xl font-bold md:text-4xl text-primary flex flex-col gap-1 md:gap-3 capitalize;
+}
+
+.para {
+  @apply mt-6 text-primary font-medium text-lg md:text-xl mx-auto;
+}
+
+.sm-para {
+  @apply text-lg font-medium text-primary;
+}
+
 .bg {
-  background: #141e30; /* fallback for old browsers */
+  background: #02aab0; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #080d13,
-    #141e30
+    #00cdac,
+    #02aab0
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #080d13,
-    #141e30
+    #00cdac,
+    #02aab0
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.App {
-  background: rgb(255, 0, 228);
-  background: radial-gradient(
-    circle,
-    rgba(255, 0, 228, 1) 0%,
-    rgba(212, 51, 16, 1) 84%,
-    rgba(255, 0, 95, 1) 100%
-  );
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  place-items: center;
+.fadeIn {
+  animation: fadeIn 0.2s ease-in;
+  transition: all 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateX(-25px);
+    opacity: 0%;
+  }
+  50% {
+    opacity: 50%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 
 body {
@@ -78,59 +95,4 @@ body {
   padding: 10px 5px;
   margin: 10px 5px;
   margin: 5px;
-}
-
-.sign-up-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.sign-up-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-.personal-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.personal-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-/* PROGRESS BAR */
-.progressbar {
-}
-
-.other-info-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.other-info-container input {
-  margin: 5px;
-  width: 200px;
-  height: 40px;
-  padding-left: 5px;
-  font-size: 20px;
 }

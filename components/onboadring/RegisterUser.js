@@ -16,11 +16,10 @@ function RegisterUser({ formData, setFormData }) {
         }
       />
 
-    <input
+      <input
         type="text"
         placeholder="Email..."
         className="w-full bg-white rounded border border-gray-300 focus:border-gray-500 focus:ring-1 focus:ring-gray-100 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out mb-4"
-
         value={formData.email}
         onChange={(event) =>
           setFormData({ ...formData, email: event.target.value })
@@ -36,7 +35,6 @@ function RegisterUser({ formData, setFormData }) {
           setFormData({ ...formData, password: event.target.value })
         }
       />
-     
     </div>
   );
 }
