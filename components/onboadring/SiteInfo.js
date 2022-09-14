@@ -1,4 +1,5 @@
 import React from "react";
+import { Checkbox } from "@material-tailwind/react";
 
 function SignUpInfo({ formData, setFormData }) {
   return (
@@ -27,7 +28,6 @@ function SignUpInfo({ formData, setFormData }) {
       <p className="text-xs text-right text-gray-600 mt-1" id="file_input_help">
         SVG, PNG, JPG or GIF (MAX. 800x400px).
       </p>
-
       {/* <input
         type="text"
         placeholder="Password..."
