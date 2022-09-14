@@ -71,7 +71,7 @@ function Form() {
           handleCreateSite();
 
         setTimeout(
-          () => router.push('/')
+          () => location.replace("http://13.126.160.113:82/")
           , 
           2000
         );
