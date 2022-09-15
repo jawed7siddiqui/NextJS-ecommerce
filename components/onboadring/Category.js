@@ -73,7 +73,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
       <div className="flex flex-wrap">
         {lists.map((list) => (
           <div key={list.title} className="p-1 md:p-2 w-1/2 cursor-pointer">
-            <button className="h-full w-full flex items-center border-gray-200 border p-2 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:bg-gray-50 active:bg-gray-50 focus:outline-none focus:ring focus:ring-teal-500 bg-teal-50">
+            <button className="h-full w-full flex items-center border-gray-200 border p-2 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:bg-gray-50 active:bg-teal-200 focus:outline-none focus:ring focus:ring-teal-200 focus:bg-teal-200 focus:border-none bg-teal-50">
               <img
                 alt="team"
                 className="w-7 md:w-12 h-7 md:h-12 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-2 md:mr-4"

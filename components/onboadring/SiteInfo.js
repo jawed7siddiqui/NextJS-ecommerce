@@ -5,7 +5,7 @@ function SignUpInfo({ formData, setFormData }) {
   return (
     <div className="">
       <label htmlFor="email" className="text-sm text-gray-600">
-        Site Name
+        Business Name <span className="text-red-500 text-base">&#42;</span>
       </label>
       <input
         type="text"

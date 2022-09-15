@@ -25,10 +25,10 @@ function OtherInfo({ formData, setFormData }) {
         </div>
         <div className="flex justify-between items-center cursor-pointer">
           <div className="flex justify-center items-center gap-2">
-            <div className="p-2 rounded-md bg-indigo-50">
-              <IoCubeOutline className="text-4xl text-indigo-500" />
+            <div className="p-2 rounded-md bg-gray-50">
+              <IoCubeOutline className="text-4xl text-gray-500" />
             </div>
-            <h3 className="text-lg">Site</h3>
+            <h3 className="text-lg">Site &#40;Comming Soon&#41; </h3>
           </div>
           <div>
             <Radio disabled color="indigo" id="digital" name="type" />

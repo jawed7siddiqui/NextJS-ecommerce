@@ -37,7 +37,7 @@ export default function Navbar() {
               Lapaas
             </span>
           </a>
-          <div>
+          <div className="flex justify-center items-center gap-5">
             <Link href="/onboarding">
               <button className="text-xl font-normal bg-primaryLight text-primary rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg border-2 border-primary hover:scale-105">
                 <span className="hidden md:block">Create Site </span>
@@ -54,6 +54,11 @@ export default function Navbar() {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </div>
+              </button>
+            </Link>
+            <Link href="/login">
+              <button className="text-xl font-normal bg-primary text-primaryLight rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg border-2 border-primary hover:scale-105">
+                <span className="hidden md:block">Login</span>
               </button>
             </Link>
           </div>
