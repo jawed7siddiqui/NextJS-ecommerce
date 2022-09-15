@@ -31,24 +31,24 @@ function OtherInfo({ formData, setFormData }) {
         </div>
         <div className="flex justify-between items-center cursor-pointer">
           <div className="flex justify-center items-center gap-2">
-            <div className="p-2 rounded-md bg-red-50">
-              <IoCubeOutline className="text-2xl text-red-500" />
+            <div className="p-2 rounded-md bg-gray-50">
+              <IoCubeOutline className="text-2xl text-gray-500" />
             </div>
-            <h3 className="text-lg">Wholesale</h3>
+            <h3 className="text-lg">Wholesale &#40;Comming Soon&#41;</h3>
           </div>
           <div>
-            <Radio color="red" id="wholesale" name="type" />
+            <Radio disabled color="gray" id="wholesale" name="type" />
           </div>
         </div>
         <div className="flex justify-between items-center cursor-pointer">
           <div className="flex justify-center items-center gap-2">
-            <div className="p-2 rounded-md bg-purple-50">
-              <IoCheckmarkCircleOutline className="text-2xl text-purple-500" />
+            <div className="p-2 rounded-md bg-gray-50">
+              <IoCheckmarkCircleOutline className="text-2xl text-gray-500" />
             </div>
-            <h3 className="text-lg">Both</h3>
+            <h3 className="text-lg">Both &#40;Comming Soon&#41;</h3>
           </div>
           <div>
-            <Radio color="purple" id="both" name="type" />
+            <Radio disabled color="gray" id="both" name="type" />
           </div>
         </div>
       </div>

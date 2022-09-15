@@ -9,6 +9,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function Form() {
   const router = useRouter();
@@ -64,11 +65,7 @@ function Form() {
 
           handleCreateSite();
 
-        setTimeout(
-          () => location.replace("http://13.126.160.113:82/")
-          , 
-          2000
-        );
+          setTimeout(() => location.replace("http://13.126.160.113:82/"), 2000);
 
           // handleLogin({ email: params.email, password: params.password })
         }
@@ -96,11 +93,10 @@ function Form() {
   };
 
   const FormTitles = [
-    "What would you like to name your site?",
+    "What would you like to name your Business?",
     "Store Type",
     "Types of goods",
     "Choose your business category",
-    "Sign Up",
   ];
 
   const PageDisplay = () => {
@@ -130,13 +126,11 @@ function Form() {
               style={{
                 width:
                   page === 0
-                    ? "20%"
+                    ? "25%"
                     : page == 1
-                    ? "40%"
+                    ? "50%"
                     : page == 2
-                    ? "60%"
-                    : page == 3
-                    ? "80%"
+                    ? "75%"
                     : "100%",
               }}
             ></div>
@@ -159,27 +153,29 @@ function Form() {
             <div className="flex justify-between gap-5">
               <button
                 className="cursor-pointer text-black bg-gray-50 border-0 py-2 px-3 focus:outline-none hover:bg-gray-100 rounded "
-                disabled={page == 4}
+                disabled={page == 3}
                 onClick={() => {
                   setPage((currPage) => currPage + 1);
                 }}
               >
                 Skip
               </button>
-              <button
-                className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
-                onClick={() => {
-                  if (page === FormTitles.length - 1) {
-                    handleRegister();
+              <Link href={page === FormTitles.length - 1 ? "/signup" : ""}>
+                <button
+                  className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
+                  onClick={() => {
+                    if (page === FormTitles.length - 1) {
+                      handleRegister();
 
-                    console.log(formData);
-                  } else {
-                    setPage((currPage) => currPage + 1);
-                  }
-                }}
-              >
-                {page === FormTitles.length - 1 ? "Submit" : "Next"}
-              </button>
+                      console.log(formData);
+                    } else {
+                      setPage((currPage) => currPage + 1);
+                    }
+                  }}
+                >
+                  {page === FormTitles.length - 1 ? "Submit" : "Next"}
+                </button>
+              </Link>
             </div>
           </div>
         </div>
