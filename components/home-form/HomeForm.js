@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import SiteInfo from "./SiteInfo";
-import StoreType from "./StoreType";
-import Category from "./Category";
-import RegisterUser from "./RegisterUser";
-import Type from "./Type";
+import Step1 from "./Step1";
+import Step2 from "./Step2";
+import Step3 from "./Step3";
+// import RegisterUser from "./RegisterUser";
+import Step4 from "./Step4";
 import { FaAngleLeft } from "react-icons/fa";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-function Form() {
+function HomeForm() {
   const router = useRouter();
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
@@ -101,15 +101,15 @@ function Form() {
 
   const PageDisplay = () => {
     if (page === 0) {
-      return <SiteInfo formData={formData} setFormData={setFormData} />;
+      return <Step1 formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
-      return <StoreType formData={formData} setFormData={setFormData} />;
+      return <Step2 formData={formData} setFormData={setFormData} />;
     } else if (page === 2) {
-      return <Type formData={formData} setFormData={setFormData} />;
+      return <Step3 formData={formData} setFormData={setFormData} />;
     } else if (page === 3) {
-      return <Category formData={formData} setFormData={setFormData} />;
-    } else {
-      return <RegisterUser formData={formData} setFormData={setFormData} />;
+      return <Step4 formData={formData} setFormData={setFormData} />;
+      // } else {
+      //   return <RegisterUser formData={formData} setFormData={setFormData} />;
 
       // return <Type formData={formData} setFormData={setFormData} />;
     }
@@ -118,8 +118,8 @@ function Form() {
   return (
     <>
       <ToastContainer />
-      <div className="h-screen w-screen flex flex-col justify-center items-center ">
-        <div className="form-container fadeIn w-11/12 md:w-2/5 h-4/6 md:h-3/4 bg-white rounded-xl shadow-2xl flex flex-col p-8 md:p-12">
+      <div className="h-full w-full flex flex-col justify-center items-center ">
+        <div className="form-container fadeIn w-11/12 md:w-full h-4/6 md:h-full bg-white rounded-xl shadow-2xl flex flex-col p-8 md:p-12">
           <div className="bg-gray-300 rounded-md w-full h-2">
             <div
               className="rounded-md w-1/3 h-2 bg"
@@ -160,7 +160,13 @@ function Form() {
               >
                 Skip
               </button>
-              <Link href={page === FormTitles.length - 1 ? "/signup" : ""}>
+              <Link
+                href={
+                  page === FormTitles.length - 1
+                    ? "/signup"
+                    : "javascript:void(0)"
+                }
+              >
                 <button
                   className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
                   onClick={() => {
@@ -184,4 +190,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default HomeForm;

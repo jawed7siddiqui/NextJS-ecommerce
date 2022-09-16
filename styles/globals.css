@@ -7,15 +7,15 @@
 }
 
 .h2 {
-  @apply text-3xl font-bold md:text-4xl text-primary flex flex-col gap-1 md:gap-3 capitalize;
+  @apply text-3xl font-bold md:text-4xl text-white flex flex-col gap-1 md:gap-3 capitalize;
 }
 
 .para {
-  @apply mt-6 text-primary font-medium text-lg md:text-xl mx-auto;
+  @apply mt-6 text-white font-medium text-lg md:text-xl mx-auto;
 }
 
 .sm-para {
-  @apply text-lg font-medium text-primary;
+  @apply text-lg font-medium text-white;
 }
 
 .bg {
@@ -52,9 +52,8 @@
 }
 
 body {
-  margin: 0%;
-  padding: 0%;
-  font-family: montserrat, arial, verdana;
+  background-color: #111111;
+  background-image: url(../public/taare.png);
 }
 
 .form {

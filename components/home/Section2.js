@@ -8,20 +8,22 @@ export default function Section2() {
     <>
       <section>
         <div className="container mx-auto px-5 py-24">
-          <h2 className="h2 text-center">Create Your Store in 3 Simple Step</h2>
+          <h2 className="h2 text-center text-white">
+            Create Your Store in 3 Simple Step
+          </h2>
           <p className="para w-1/2 text-center">
             Let us show you how easy it is to build your own store
           </p>
-          <div className="grid grid-cols-3 gap-10 pt-14 px-10">
+          <div className="grid grid-cols-4 gap-10 pt-14 px-10">
             <div className="col-span-2">
               {/* <iframe
                 className="w-full aspect-video "
                 src="https://www.youtube.com/watch?v=y-cJuCMzpdA"
               ></iframe> */}
               <iframe
-                className="aspect-video w-full h-[28rem] rounded-sm"
-                width="560"
-                height="315"
+                className="aspect-auto w-full h-80 rounded-sm"
+                // width="300"
+                // height="500"
                 src="https://www.youtube-nocookie.com/embed/y-cJuCMzpdA"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -34,7 +36,7 @@ export default function Section2() {
                   Start selling your Products Online and Grow Your Business
                   Faster than ever
                 </p>
-                <ul className="space-y-6 mt-10">
+                <ul className="space-y-6 mt-10 text-center">
                   <li className="sm-para flex justify-center gap-5">
                     <div className="pt-1 text-2xl">
                       <FaCheck />
@@ -71,11 +73,11 @@ export default function Section2() {
                     src="https://dummyimage.com/600x400/ECFDF5/047857.png"
                     alt=""
                   />
-                  <div className="border-[3px] border-primary text-2xl text-primary p-1 rounded-full w-fit mt-5 mx-auto">
+                  <div className="border-[3px] border-primary text-2xl text-white p-1 rounded-full w-fit mt-5 mx-auto">
                     <BsChevronDown />
                   </div>
                 </div>
-                <h3 className="mt-2 text-center text-primary text-2xl font-bold ">
+                <h3 className="mt-2 text-center text-white text-2xl font-bold ">
                   Register
                   <span className="block font-medium text-base mt-1">
                     Register with your mobile number or email id and provide
@@ -90,11 +92,11 @@ export default function Section2() {
                     src="https://dummyimage.com/600x400/ECFDF5/047857.png"
                     alt=""
                   />
-                  <div className="border-[3px] border-primary text-2xl text-primary p-1 rounded-full w-fit mt-5 mx-auto">
+                  <div className="border-[3px] border-primary text-2xl text-white p-1 rounded-full w-fit mt-5 mx-auto">
                     <BsChevronDown />
                   </div>
                 </div>
-                <h3 className="mt-2 text-center text-primary text-2xl font-bold ">
+                <h3 className="mt-2 text-center text-white text-2xl font-bold ">
                   Choose Your Products
                   <span className="block font-medium text-base mt-1">
                     Select your products from our product library, you can also
@@ -109,11 +111,11 @@ export default function Section2() {
                     src="https://dummyimage.com/600x400/ECFDF5/047857.png"
                     alt=""
                   />
-                  <div className="border-[3px] border-primary text-2xl text-primary p-1 rounded-full w-fit mt-5 mx-auto">
+                  <div className="border-[3px] border-primary text-2xl text-white p-1 rounded-full w-fit mt-5 mx-auto">
                     <BsChevronDown />
                   </div>
                 </div>
-                <h3 className="mt-2 text-center text-primary text-2xl font-bold ">
+                <h3 className="mt-2 text-center text-white text-2xl font-bold ">
                   You’re Store is Ready
                   <span className="block font-medium text-base mt-1">
                     Hurray! You store is ready now you can start selling your

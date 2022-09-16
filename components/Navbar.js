@@ -1,12 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 import { FaUserAlt } from "react-icons/fa";
+import { CgMenuRight } from "react-icons/cg";
 import React from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <>
-      <div className="h-8 bg-primaryLight text-center flex justify-center items-center">
-        <p className="text-primary font-bold text-sm md:text-base">
+      <div className="h-8 bg-secondary text-center flex justify-center items-center">
+        <p className="text-white font-bold text-sm md:text-base">
           Here goes your product promotional offer
         </p>
       </div>
@@ -33,13 +35,14 @@ export default function Navbar() {
       <header className="py-3 md:py-5">
         <div className="flex justify-between container mx-auto px-5">
           <a className="flex font-medium items-center">
-            <span className="text-xl uppercase font-bold bg-primary text-primaryLight rounded-sm px-3 py-1">
+            {/* <span className="text-xl uppercase font-bold bg-primary text-primaryLight rounded-sm px-3 py-1">
               Lapaas
-            </span>
+            </span> */}
+            <img src="/LapaasLogo.webp" alt="" />
           </a>
           <div className="flex justify-center items-center gap-5">
             <Link href="/onboarding">
-              <button className="text-xl font-normal bg-primaryLight text-primary rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg border-2 border-primary hover:scale-105">
+              <button className="text-lg font-normal bg-secondary text-white rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg  hover:scale-105">
                 <span className="hidden md:block">Create Site </span>
                 <div>
                   <svg
@@ -57,18 +60,23 @@ export default function Navbar() {
               </button>
             </Link>
             <Link href="/login">
-              <button className="text-xl font-normal bg-primary text-primaryLight rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg border-2 border-primary hover:scale-105">
+              <button className="text-lg font-normal bg-secondary text-primaryLight rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg  hover:scale-105">
                 <span className="hidden md:block">Login</span>
               </button>
             </Link>
+            <button className="text-3xl font-normal text-white rounded px-3 py-1 flex justify-center items-center hover:scale-105">
+              <span className="hidden md:block">
+                <CgMenuRight />
+              </span>
+            </button>
           </div>
         </div>
       </header>
-      <div className="h-8 bg-primaryLight text-center flex justify-center items-center">
-        <p className="text-primary text-sm md:text-base">
+      {/* <div className="h-8 bg-secondary text-center flex justify-center items-center">
+        <p className="text-white text-sm md:text-base">
           [Brand Name]: Company slogan goes here
         </p>
-      </div>
+      </div> */}
     </>
   );
 }

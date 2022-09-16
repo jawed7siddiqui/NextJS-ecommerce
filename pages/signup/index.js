@@ -17,7 +17,7 @@ export default function Signup() {
   return (
     <Layout title={"Sign Up"}>
       {" "}
-      <div className="bg py-12 h-full overflow-hidden w-full flex flex-col justify-center items-center ">
+      <div className=" py-12 h-full overflow-hidden w-full flex flex-col justify-center items-center ">
         <div className="fadeIn w-11/12 md:w-4/12  bg-white rounded-xl shadow-2xl flex flex-col px-8 py-16">
           {/* Body  */}
           <div className="body">

@@ -72,7 +72,9 @@ const Faq = () => {
                     {/* <span className="px-2 text-4xl text-primary font-medium">
                       A.
                     </span> */}
-                    <span className="px-2 sm-para">{faq.answer}</span>
+                    <span className="px-2 text-lg font-medium text-primary">
+                      {faq.answer}
+                    </span>
                   </dd>
                 </div>
               ))}
