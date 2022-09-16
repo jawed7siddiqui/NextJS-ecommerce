@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <>
-      <footer className="text-primary body-font">
+      <footer className="">
         {/* <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
             <a className="flex title-font font-medium items-center md:justify-start justify-cente cursor-pointer">
@@ -75,7 +75,7 @@ export default function Footer() {
             </div>
           </div>
         </div> */}
-        <div className="bg-primary text-white">
+        <div className="bg-secondary text-white">
           <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
             <p className="text-sm text-center sm:text-left tracking-widest uppercase">
               © Copyright 2022 Lapaas. All Rights Reserved

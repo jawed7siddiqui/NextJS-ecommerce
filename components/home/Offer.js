@@ -4,7 +4,7 @@ import { FaCheck } from "react-icons/fa";
 export default function Offer() {
   return (
     <>
-      <section className="bg-primaryLight">
+      <section className="">
         <div className="container mx-auto flex justify-center items-center py-14 md:py-24">
           <div className="w-1/2 flex flex-col justify-center items-center">
             <h2 className="text-center h2 ">
