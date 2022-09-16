@@ -165,7 +165,7 @@ function Form() {
                   className="text-white bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-900 rounded text-base"
                   onClick={() => {
                     if (page === FormTitles.length - 1) {
-                      handleRegister();
+                      // handleRegister();
 
                       console.log(formData);
                     } else {
