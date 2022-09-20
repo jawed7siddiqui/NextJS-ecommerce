@@ -11,13 +11,16 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^1.2.3",
+    "@react-oauth/google": "^0.2.8",
     "axios": "^0.27.2",
+    "jwt-encode": "^1.0.1",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.3.0",
     "react-icons": "^4.4.0",
-    "react-toastify": "^9.0.8"
+    "react-toastify": "^9.0.8",
+    "string-encode-decode": "^1.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",

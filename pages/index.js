@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import axios from 'axios'
+
 /* eslint-disable @next/next/no-img-element */
 import Faq from "../components/home/Faq";
 import Footer from "../components/home/Footer";
@@ -12,10 +15,14 @@ import Section6 from "../components/home/Section6";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 
+
 export default function Home() {
+
+
   return (
     <Layout title="Home Page">
       <Navbar />
+      
       <Hero />
       {/* <Section1 /> */}
       <Section2 />

@@ -10,13 +10,69 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import { GoogleLogin,useGoogleLogin,TokenResponse } from '@react-oauth/google';
+
 
 export default function Signup() {
   const [open, setOpen] = useState(false);
+  const [gdata, setGdata] = useState([]);
+
 
   // handle toggle
   const toggle = () => {
     setOpen(!open);
+  };
+
+  const handleSocialReg = (username,email,password) => {
+    axios
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, {
+        query: `
+        mutation {
+          userCreate(data: {
+              name: "${username}",
+              phone: "9142627909",
+              email: "${email}",
+              username: "${username}",
+              password: "${password}",
+          }) {
+              id
+              role_id
+              name
+              phone
+              email
+              username
+              status
+              created_at
+              updated_at
+          }
+      }
+          `,
+      })
+      .then((res) => {
+
+       let lUrl = process.env.NEXT_PUBLIC_REDIRECT+'login/?j$uio='+window.btoa(email);
+       location.replace(lUrl)
+
+        // if (res.data.errors) {
+
+        //   toast.error("Error : Something went wrong!", {
+        //     position: toast.POSITION.TOP_RIGHT,
+        //   });
+        // } else {
+        //   toast.success("Your account has created successfully !", {
+        //     position: toast.POSITION.TOP_RIGHT,
+        //   });
+
+         // handleCreateSite();
+
+        //   setTimeout(() => location.replace(process.env.NEXT_PUBLIC_REDIRECT), 2000);
+
+        //   // handleLogin({ email: params.email, password: params.password })
+        // }
+      })
+      .catch((err) => {
+        console.log(err)
+      });
   };
 
   const [formData, setFormData] = useState({
@@ -70,7 +126,7 @@ export default function Signup() {
 
          // handleCreateSite();
 
-          setTimeout(() => location.replace("http://13.126.160.113:82/"), 2000);
+          setTimeout(() => location.replace(process.env.NEXT_PUBLIC_REDIRECT), 2000);
 
           // handleLogin({ email: params.email, password: params.password })
         }
@@ -79,6 +135,34 @@ export default function Signup() {
         console.log(err)
       });
   };
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: async tokenResponse => {
+      const userInfo = await axios
+        .get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+        })
+        .then(result => {
+
+          console.log(result.data)
+          setGdata(result.data)
+
+          handleSocialReg(result.data.name,result.data.email,'J7$#@!fgh')
+ 
+
+        });
+    },
+    onError: errorResponse => console.log(errorResponse),
+  });
+
+
+  
+
+  if(gdata.email_verified == true){
+
+    console.log(333);
+
+  }
 
   return (
 
@@ -212,7 +296,7 @@ export default function Signup() {
                     className="w-7 h-7 cursor-pointer" />
                 </div>
                 <div>
-                  <FcGoogle className="text-3xl cursor-pointer" />
+                  <FcGoogle className="text-3xl cursor-pointer" onClick={() => googleLogin()} />
                 </div>
               </div>
             </div>
