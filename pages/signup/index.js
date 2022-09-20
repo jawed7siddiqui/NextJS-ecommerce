@@ -47,6 +47,7 @@ export default function Signup() {
           }
       }
           `,
+          headers: {"Access-Control-Allow-Origin": "*"},
       })
       .then((res) => {
 
@@ -112,6 +113,7 @@ export default function Signup() {
           }
       }
           `,
+          headers: {"Access-Control-Allow-Origin": "*"},
       })
       .then((res) => {
         if (res.data.errors) {
