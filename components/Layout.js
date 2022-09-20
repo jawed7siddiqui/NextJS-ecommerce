@@ -9,7 +9,6 @@ export default function Layout({ title, children }) {
       <Head>
         <title>{title ? title + " - Lapaas" : "Lapaas"}</title>
         <meta name="description" content="Ecommerce Websiteb" />
-        <meta Http-equiv="Content-Security-Policy" Content="upgrade-insecure-requests" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
