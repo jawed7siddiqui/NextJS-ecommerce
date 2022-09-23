@@ -1,11 +1,14 @@
 import React from "react";
 import Form from "../components/onboadring/Form";
-import Layout from "../components/Layout";
+import Head from "next/head";
 
 export default function onboarding() {
   return (
-    <Layout title={"Onboarding"}>
+    <>
+      <Head>
+        <title>{"Onboarding - Lapaas"}</title>
+      </Head>
       <Form />
-    </Layout>
+    </>
   );
 }
