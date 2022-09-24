@@ -1,8 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState, useEffect } from "react";
 
 import { RiMenu5Fill } from "react-icons/ri";
 import { HiX } from "react-icons/hi";
 import Link from "next/link";
+import LapaasLogo from "./svg/LapaasLogo";
+import { FaLock } from "react-icons/fa";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +13,49 @@ export default function Navbar() {
     <>
       <nav className="flex justify-between pt-5 items-center container mx-auto px-10 border-b-[3px] border-textColor pb-4">
         <Link href={"/"}>
-          <h2 className="text-4xl cursor-pointer text-textColor">LAPAAS</h2>
+          <div className="flex justify-center place-items-end">
+            <img src="/Logo.png" className="h-14" alt="Logo" />
+            <h2 className="text-4xl cursor-pointer text-textColor">LAPAAS</h2>
+          </div>
         </Link>
-        <button className="bg-textColor text-primaryLight rounded-full p-2 text-3xl">
+        {/* <LapaasLogo /> */}
+        <div className="hidden md:block">
+          <div className="flex justify-center items-center gap-5">
+            <ul className="text-textColor text-xl flex justify-center items-center gap-5">
+              <Link href={"/"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Home
+                </li>
+              </Link>
+              <Link href={"/services"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Services
+                </li>
+              </Link>
+              <Link href={"/course"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Course
+                </li>
+              </Link>
+              <Link href={"/consultation"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Consultation
+                </li>
+              </Link>
+              <Link href={"/blog"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Blog
+                </li>
+              </Link>
+            </ul>
+            <Link href={"/signup"}>
+              <button className="flex justify-center items-center bg-pinkDark text-white rounded-sm py-1 px-2 text-xl gap-2">
+                Sign In
+              </button>
+            </Link>
+          </div>
+        </div>
+        <button className="block md:hidden bg-textColor text-primaryLight rounded-full p-2 text-3xl">
           {isOpen ? (
             <HiX className="text-3xl" onClick={() => setIsOpen(!isOpen)} />
           ) : (
@@ -57,18 +100,17 @@ export default function Navbar() {
               </Link>
               <Link href={"/consultancy"}>
                 <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
-                  Consultancy
+                  Consultation
                 </h2>
               </Link>
-              <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
-                Devlopment
-              </h2>
-              <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
-                Consultant
-              </h2>
               <Link href={"/course"}>
                 <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
                   Course
+                </h2>
+              </Link>
+              <Link href={"/signup"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Sign In
                 </h2>
               </Link>
             </div>
