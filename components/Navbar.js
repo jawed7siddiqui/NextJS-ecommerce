@@ -48,7 +48,7 @@ export default function Navbar() {
                 </li>
               </Link>
             </ul>
-            <Link href={"/signup"}>
+            <Link href={"/login"}>
               <button className="flex justify-center items-center bg-pinkDark text-white rounded-sm py-1 px-2 text-xl gap-2">
                 Sign In
               </button>
