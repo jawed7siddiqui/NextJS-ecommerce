@@ -51,9 +51,7 @@ export default function Home() {
                 data-aos="fade-up"
                 data-aos-duration="800"
               >
-                <Link href="#" passHref>
-                  <Button />
-                </Link>
+                <Button />
               </div>
               {/* <div
               className="flex justify-center items-center gap-1 mt-10"

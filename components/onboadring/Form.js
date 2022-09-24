@@ -95,7 +95,7 @@ function Form() {
   const FormTitles = [
     "What would you like to name your Business?",
     "Store Type",
-    "Types of goods",
+    "Types of Business",
     "Choose your business category",
   ];
 
