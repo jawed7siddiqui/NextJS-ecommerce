@@ -10,20 +10,22 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
-import { GoogleLogin,useGoogleLogin,TokenResponse } from '@react-oauth/google';
-
+import {
+  GoogleLogin,
+  useGoogleLogin,
+  TokenResponse,
+} from "@react-oauth/google";
 
 export default function Signup() {
   const [open, setOpen] = useState(false);
   const [gdata, setGdata] = useState([]);
-
 
   // handle toggle
   const toggle = () => {
     setOpen(!open);
   };
 
-  const handleSocialReg = (username,email,password) => {
+  const handleSocialReg = (username, email, password) => {
     axios
       .post(process.env.NEXT_PUBLIC_API_ENDPOINT, {
         query: `
@@ -49,9 +51,11 @@ export default function Signup() {
           `,
       })
       .then((res) => {
-
-       let lUrl = process.env.NEXT_PUBLIC_REDIRECT+'login/?j$uio='+window.btoa(email);
-       location.replace(lUrl)
+        let lUrl =
+          process.env.NEXT_PUBLIC_REDIRECT +
+          "login/?j$uio=" +
+          window.btoa(email);
+        location.replace(lUrl);
 
         // if (res.data.errors) {
 
@@ -63,7 +67,7 @@ export default function Signup() {
         //     position: toast.POSITION.TOP_RIGHT,
         //   });
 
-         // handleCreateSite();
+        // handleCreateSite();
 
         //   setTimeout(() => location.replace(process.env.NEXT_PUBLIC_REDIRECT), 2000);
 
@@ -71,7 +75,7 @@ export default function Signup() {
         // }
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       });
   };
 
@@ -124,51 +128,44 @@ export default function Signup() {
             position: toast.POSITION.TOP_RIGHT,
           });
 
-         // handleCreateSite();
+          // handleCreateSite();
 
-          setTimeout(() => location.replace(process.env.NEXT_PUBLIC_REDIRECT), 2000);
+          setTimeout(
+            () => location.replace(process.env.NEXT_PUBLIC_REDIRECT),
+            2000
+          );
 
           // handleLogin({ email: params.email, password: params.password })
         }
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
       });
   };
 
   const googleLogin = useGoogleLogin({
-    onSuccess: async tokenResponse => {
+    onSuccess: async (tokenResponse) => {
       const userInfo = await axios
-        .get('https://www.googleapis.com/oauth2/v3/userinfo', {
+        .get("https://www.googleapis.com/oauth2/v3/userinfo", {
           headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
         })
-        .then(result => {
+        .then((result) => {
+          console.log(result.data);
+          setGdata(result.data);
 
-          console.log(result.data)
-          setGdata(result.data)
-
-          handleSocialReg(result.data.name,result.data.email,'J7$#@!fgh')
- 
-
+          handleSocialReg(result.data.name, result.data.email, "J7$#@!fgh");
         });
     },
-    onError: errorResponse => console.log(errorResponse),
+    onError: (errorResponse) => console.log(errorResponse),
   });
 
-
-  
-
-  if(gdata.email_verified == true){
-
+  if (gdata.email_verified == true) {
     console.log(333);
-
   }
 
   return (
-
-    <><ToastContainer />
-    <Layout title={"Sign Up"}>
-      {" "}
+    <>
+      <ToastContainer />
       <div className=" py-12 h-full overflow-hidden w-full flex flex-col justify-center items-center ">
         <div className="fadeIn w-11/12 md:w-4/12  bg-white rounded-xl shadow-2xl flex flex-col px-8 py-16">
           {/* Body  */}
@@ -178,7 +175,6 @@ export default function Signup() {
               One last step before starting your free trial.
             </p>
             <div className="my-5 space-y-5">
-
               {/* username  */}
               <div>
                 <label
@@ -202,8 +198,11 @@ export default function Signup() {
                     id="username"
                     name="username"
                     value={formData.username}
-                    onChange={(event) => setFormData({ ...formData, username: event.target.value })}
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    onChange={(event) =>
+                      setFormData({ ...formData, username: event.target.value })
+                    }
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
                 </div>
               </div>
 
@@ -220,10 +219,12 @@ export default function Signup() {
                   id="email"
                   name="email"
                   value={formData.email}
-                  onChange={(event) => setFormData({ ...formData, email: event.target.value })}
-                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                  onChange={(event) =>
+                    setFormData({ ...formData, email: event.target.value })
+                  }
+                  className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
               </div>
-
 
               {/* Password  */}
               <div>
@@ -248,8 +249,11 @@ export default function Signup() {
                     id="password"
                     name="password"
                     value={formData.password}
-                    onChange={(event) => setFormData({ ...formData, password: event.target.value })}
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    onChange={(event) =>
+                      setFormData({ ...formData, password: event.target.value })
+                    }
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
                 </div>
               </div>
               {/* Confirm Password  */}
@@ -274,13 +278,18 @@ export default function Signup() {
                     type={open === false ? "password" : "text"}
                     id="confirm-password"
                     name="confirm-password"
-                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+                    className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
                 </div>
               </div>
               <Checkbox
                 label="Remember Me"
-                className="leading-7 text-sm text-gray-600" />
-              <button onClick={handleRegister} className="text-white bg-gray-900 py-2 px-6 focus:outline-none rounded text-lg w-full border-2 border-gray-900">
+                className="leading-7 text-sm text-gray-600"
+              />
+              <button
+                onClick={handleRegister}
+                className="text-white bg-gray-900 py-2 px-6 focus:outline-none rounded text-lg w-full border-2 border-gray-900"
+              >
                 Sign Up
               </button>
               <div className="flex justify-center items-center gap-3">
@@ -293,10 +302,14 @@ export default function Signup() {
                   <img
                     src="/facebook-round-color-icon.svg"
                     alt=""
-                    className="w-7 h-7 cursor-pointer" />
+                    className="w-7 h-7 cursor-pointer"
+                  />
                 </div>
                 <div>
-                  <FcGoogle className="text-3xl cursor-pointer" onClick={() => googleLogin()} />
+                  <FcGoogle
+                    className="text-3xl cursor-pointer"
+                    onClick={() => googleLogin()}
+                  />
                 </div>
               </div>
             </div>
@@ -324,6 +337,6 @@ export default function Signup() {
           </div>
         </div>
       </div>
-    </Layout></>
+    </>
   );
 }

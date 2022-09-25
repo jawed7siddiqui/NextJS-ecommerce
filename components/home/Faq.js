@@ -1,87 +1,90 @@
 import React, { useState } from "react";
+import { Disclosure } from "@headlessui/react";
+import { FaAngleDown } from "react-icons/fa";
 
 const Faq = () => {
   const [isFAQ, setIsFAQ] = useState(true);
 
   const faq = [
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "What is Lapaas?",
+      a: "Lapaas is a one stop solution for all your digital needs.",
     },
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "What are the features of this tool?",
+      a: "We offer all the features that you need to sell your products online.",
     },
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "How much does it cost to use this tool?",
+      a: "As of Now, Lapaas is completely free. You don’t have to pay any commission or buy any subscription plan.",
     },
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "How is this tool different from other tools?",
+      a: "We offer an easy to use tool which is completely free with all the features that you need to sell your products online.",
     },
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "How do I create my online presence through this tool?",
+      a: "Simply click on Build your online store now and provide basic details regarding your business then choose your products and your store is ready to launch.",
     },
     {
-      number: 1,
-      question: "What is Lapaas?",
-      answer:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque veritatis deserunt, praesentium impedit provident amet laudantium quibusdam a saepe atque odio, quidem quia eos ab aperiam quos! Officia, ducimus temporibus!",
+      key: 1,
+      q: "What are the monthly charges for using this platform?",
+      a: "There are no monthly charges for using this platform.",
     },
   ];
 
   return (
-    <section className="w-full">
-      <div className="container mx-auto text-primary px-5 pb-14 md:pb-16">
-        {/* :CONTAINER DISPLAY */}
-        <div className="w-full h-full text-gray-700">
-          {/* ::FAQ Page */}
-          <div className="mx-auto max-w-8xl">
-            {/* :::Title */}
-            <h2 className="mx-auto py-4 w-5/6 text-center h2 font-semibold">
-              Frequently Asked Questions
-            </h2>
-            {/* :::Accordion Panel */}
-            <dl className="my-5 sm:my-10 p-3 w-full grid grid-cols-2 gap-10">
-              {faq.map((faq) => (
-                <div
-                  key={faq.number}
-                  className="col-span-2 lg:col-span-1 flex flex-col"
-                >
-                  <dt className="p-2 inline-flex items-center bg-primaryLight">
-                    {/* <span className="px-2 text-4xl text-primary font-medium">
-                      Q.
-                    </span> */}
-                    <span className="px-2 font-bold text-base md:text-xl text-primary text-center">
-                      Q: {faq.question}
-                    </span>
-                  </dt>
-                  <dd className="p-2 inline-flex items-top bg-white">
-                    {/* <span className="px-2 text-4xl text-primary font-medium">
-                      A.
-                    </span> */}
-                    <span className="px-2 text-lg font-medium text-primary">
-                      {faq.answer}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+    <section className="text-textColor">
+      <div className="container mx-auto px-5 pb-14">
+        {/* :TITLE & IMAGE */}
+        <div className="mb-8 mx-auto max-w-4xl flex flex-col items-center">
+          <h2 className="text-center text-2xl sm:text-3xl text-textColor font-semibold px-2">
+            Frequently Asked qs
+          </h2>
         </div>
-      </div>
+
+        {/* :FAQ */}
+        <dl className="mx-auto p-2 flex flex-col items-center">
+          {/* ::Accordion Panel */}
+          {faq.map((faq) => (
+            <Disclosure key={faq.key}>
+              {({ open }) => (
+                <>
+                  {/* q */}
+                  <dt
+                    className={`group w-full border-b-4 border-primaryLight text-textColor hover:bg-primaryLight hover:text-textColor ${
+                      open && "bg-primaryLight text-textColor"
+                    }`}
+                  >
+                    <Disclosure.Button className="py-5 px-3 w-full flex justify-between items-center">
+                      <span className="text-lg md:text-xl text-left font-semibold">
+                        {faq.q}
+                      </span>
+                      <FaAngleDown
+                        className={`${
+                          open && "transform rotate-180 text-textColor"
+                        } flex-shrink-0 ml-2 w-7 h-7 text-textColor group-hover:text-textColor`}
+                        aria-hidden="true"
+                      />
+                    </Disclosure.Button>
+                  </dt>
+                  {/* a */}
+                  <dd className="w-full text-xl text-textColor">
+                    <Disclosure.Panel className="px-4 pt-4 pb-2">
+                      {faq.a}
+                    </Disclosure.Panel>
+                  </dd>
+                </>
+              )}
+            </Disclosure>
+          ))}
+        </dl>
+      </div>{" "}
     </section>
   );
 };

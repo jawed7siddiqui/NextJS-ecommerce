@@ -51,11 +51,6 @@
   }
 }
 
-body {
-  background-color: #111111;
-  background-image: url(../public/taare.png);
-}
-
 .form {
   width: 100%;
   height: 100%;
@@ -94,4 +89,12 @@ body {
   padding: 10px 5px;
   margin: 10px 5px;
   margin: 5px;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-origin: 0%;
 }

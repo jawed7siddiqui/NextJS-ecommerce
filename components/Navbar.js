@@ -1,82 +1,122 @@
 /* eslint-disable @next/next/no-img-element */
-import { FaUserAlt } from "react-icons/fa";
-import { CgMenuRight } from "react-icons/cg";
-import React from "react";
+import { useState, useEffect } from "react";
+
+import { RiMenu5Fill } from "react-icons/ri";
+import { HiX } from "react-icons/hi";
 import Link from "next/link";
+import LapaasLogo from "./svg/LapaasLogo";
+import { FaLock } from "react-icons/fa";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="h-8 bg-secondary text-center flex justify-center items-center">
-        <p className="text-white font-bold text-sm md:text-base">
-          Here goes your product promotional offer
-        </p>
-      </div>
-      {/* <header className="text-primary body-font">
-        <div className="container mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
-          <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <span className="ml-3 text-xl uppercase font-bold bg-primary text-primaryLight rounded-sm px-3 py-1">
-              Lapaas
-            </span>
-          </a>
-          <nav className="md:ml-auto flex flex-wrap items-center justify-center font-medium text-base md:text-xl gap-5">
-            <a className="uppercase">Got any Questions?</a>
-            <a className="uppercase">
-              <div className="flex items-center space-x-2">
-                <div>
-                  <FaUserAlt className="bg-primary text-primaryLight rounded-full p-1 text-2xl md:text-3xl" />
-                </div>
-                <span>0987564123</span>
-              </div>
-            </a>
-          </nav>
-        </div>
-      </header> */}
-      <header className="py-3 md:py-5">
-        <div className="flex justify-between container mx-auto px-5">
-          <a className="flex font-medium items-center">
-            {/* <span className="text-xl uppercase font-bold bg-primary text-primaryLight rounded-sm px-3 py-1">
-              Lapaas
-            </span> */}
-            <img src="/LapaasLogo.webp" alt="" />
-          </a>
+      <nav className="flex justify-between pt-5 items-center container mx-auto px-10 border-b-[3px] border-textColor pb-4">
+        <Link href={"/"}>
+          <div className="flex justify-center place-items-end">
+            <img src="/Logo.png" className="h-14" alt="Logo" />
+            <h2 className="text-4xl cursor-pointer text-textColor">LAPAAS</h2>
+          </div>
+        </Link>
+        {/* <LapaasLogo /> */}
+        <div className="hidden md:block">
           <div className="flex justify-center items-center gap-5">
-            <Link href="/onboarding">
-              <button className="text-lg font-normal bg-secondary text-white rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg  hover:scale-105">
-                <span className="hidden md:block">Create Site </span>
-                <div>
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    className="w-5 h-5"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
+            <ul className="text-textColor text-xl flex justify-center items-center gap-5">
+              <Link href={"/"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Home
+                </li>
+              </Link>
+              <Link href={"/services"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Services
+                </li>
+              </Link>
+              <Link href={"/course"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Course
+                </li>
+              </Link>
+              <Link href={"/consultation"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Consultation
+                </li>
+              </Link>
+              <Link href={"/blog"}>
+                <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
+                  Blog
+                </li>
+              </Link>
+            </ul>
+            <Link href={"/login"}>
+              <button className="flex justify-center items-center bg-pinkDark text-white rounded-sm py-1 px-2 text-xl gap-2">
+                Sign In
               </button>
             </Link>
-            <Link href="/login">
-              <button className="text-lg font-normal bg-secondary text-primaryLight rounded px-3 py-1 flex justify-center items-center gap-3 shadow-lg  hover:scale-105">
-                <span className="hidden md:block">Login</span>
-              </button>
-            </Link>
-            <button className="text-3xl font-normal text-white rounded px-3 py-1 flex justify-center items-center hover:scale-105">
-              <span className="hidden md:block">
-                <CgMenuRight />
-              </span>
-            </button>
           </div>
         </div>
-      </header>
-      {/* <div className="h-8 bg-secondary text-center flex justify-center items-center">
-        <p className="text-white text-sm md:text-base">
-          [Brand Name]: Company slogan goes here
-        </p>
-      </div> */}
+        <button className="block md:hidden bg-textColor text-primaryLight rounded-full p-2 text-3xl">
+          {isOpen ? (
+            <HiX className="text-3xl" onClick={() => setIsOpen(!isOpen)} />
+          ) : (
+            <RiMenu5Fill
+              className="text-3xl"
+              onClick={() => setIsOpen(!isOpen)}
+            />
+          )}
+        </button>
+      </nav>
+      {isOpen && (
+        <div className="backdrop-blur-md z-50 flex m-auto py-5 items-center fixed inset-0 h-full w-full">
+          <div className="mx-auto p-8 md:p-20 h-full flex-col flex justify-evenly items-center gap-5 w-11/12 rounded bg-textColor relative ">
+            <button className="flex top-5 right-5 absolute bg-primaryLight rounded-full p-2 text-textColor text-xl justify-center items-center gap-3">
+              <div>
+                {isOpen ? (
+                  <HiX
+                    className="text-3xl"
+                    onClick={() => setIsOpen(!isOpen)}
+                  />
+                ) : (
+                  <RiMenu5Fill
+                    className="text-3xl"
+                    onClick={() => setIsOpen(!isOpen)}
+                  />
+                )}
+              </div>
+            </button>
+            <div>
+              <h2 className="text-5xl text-white">LAPAAS</h2>
+            </div>
+            <div className="space-y-5">
+              <Link href={"/"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Home
+                </h2>
+              </Link>
+              <Link href={"/services"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Services
+                </h2>
+              </Link>
+              <Link href={"/consultancy"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Consultation
+                </h2>
+              </Link>
+              <Link href={"/course"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Course
+                </h2>
+              </Link>
+              <Link href={"/signup"}>
+                <h2 className="bg-primaryLight cursor-pointer text-xl md:text-2xl transition duration-300 ease-in-out p-3 rounded hover:scale-105">
+                  Sign In
+                </h2>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

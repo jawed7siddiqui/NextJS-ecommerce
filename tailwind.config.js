@@ -4,12 +4,17 @@ module.exports = withMT({
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: "#193247",
-        secondary: "#D14B39",
-        primaryLight: "#ECFDF5",
+        primary: "#C1EFFF",
+        darkGray: "#0f172a",
+        lightGray: "#1e293b",
+        textColor: "#2B2E4A",
+        primaryLight: "#FFE9AE",
+        pink: "#f58e8e",
+        pinkDark: "#ff7070",
       },
     },
   },

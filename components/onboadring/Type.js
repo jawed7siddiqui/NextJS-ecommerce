@@ -45,7 +45,7 @@ function OtherInfo({ formData, setFormData }) {
             <div className="p-2 rounded-md bg-gray-50">
               <IoCheckmarkCircleOutline className="text-2xl text-gray-500" />
             </div>
-            <h3 className="text-lg">Both &#40;Comming Soon&#41;</h3>
+            <h3 className="text-lg">Local &#40;Comming Soon&#41;</h3>
           </div>
           <div>
             <Radio disabled color="gray" id="both" name="type" />

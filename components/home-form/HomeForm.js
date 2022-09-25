@@ -119,7 +119,7 @@ function HomeForm() {
     <>
       <ToastContainer />
       <div className="h-full w-full flex flex-col justify-center items-center ">
-        <div className="form-container fadeIn w-11/12 md:w-full h-4/6 md:h-full bg-white rounded-xl shadow-2xl flex flex-col p-8 md:p-12">
+        <div className="form-container fadeIn w-11/12 md:w-full h-4/6 md:h-full bg-white border-2 rounded-xl shadow-md flex flex-col p-8 md:p-12">
           <div className="bg-gray-300 rounded-md w-full h-2">
             <div
               className="rounded-md w-1/3 h-2 bg"
