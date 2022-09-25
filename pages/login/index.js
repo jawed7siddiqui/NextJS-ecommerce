@@ -5,14 +5,82 @@ import { Checkbox } from "@material-tailwind/react";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import Link from '@mui/material/Link';
+
+import {
+  GoogleLogin,
+  useGoogleLogin,
+  TokenResponse,
+} from "@react-oauth/google";
 
 export default function Login() {
   const [open, setOpen] = useState(false);
+  const [gdata, setGdata] = useState([]);
 
   // handle toggle
   const toggle = () => {
     setOpen(!open);
   };
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      const userInfo = await axios
+        .get("https://www.googleapis.com/oauth2/v3/userinfo", {
+          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+        })
+        .then((result) => {
+          console.log(result.data);
+          setGdata(result.data);
+
+          handleSocialReg(result.data.name, result.data.email, "J7$#@!fgh");
+        });
+    },
+    onError: (errorResponse) => console.log(errorResponse),
+  });
+
+  if (gdata.email_verified == true) {
+    console.log('verified email');
+  }
+
+  const handleSocialReg = (username, email, password) => {
+    axios
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, {
+        query: `
+        mutation {
+          userCreate(data: {
+              name: "${username}",
+              phone: "9142627909",
+              email: "${email}",
+              username: "${username}",
+              password: "${password}",
+          }) {
+              id
+              role_id
+              name
+              phone
+              email
+              username
+              status
+              created_at
+              updated_at
+          }
+      }
+          `,
+      })
+      .then((res) => {
+        let lUrl =
+          process.env.NEXT_PUBLIC_REDIRECT +
+          "login/?j$uio=" +
+          window.btoa(email);
+        location.replace(lUrl);
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <ToastContainer />
@@ -85,17 +153,21 @@ export default function Login() {
                   />
                 </div>
                 <div>
-                  <FcGoogle className="text-3xl cursor-pointer" />
+                <FcGoogle
+                    className="text-3xl cursor-pointer"
+                    onClick={() => googleLogin()}
+                  />
+
                 </div>
               </div>
             </div>
             <p className="text-gray-700 text-sm mt-5 text-center">
               Don&#39;t have account?{" "}
-              <a href="#">
+              <Link href="/signup">
                 <span className="text-teal-500 hover:underline cursor-pointer">
                   Sign Up
                 </span>
-              </a>
+              </Link>
             </p>
           </div>
         </div>

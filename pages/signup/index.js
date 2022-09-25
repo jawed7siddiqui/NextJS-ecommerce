@@ -57,22 +57,7 @@ export default function Signup() {
           window.btoa(email);
         location.replace(lUrl);
 
-        // if (res.data.errors) {
-
-        //   toast.error("Error : Something went wrong!", {
-        //     position: toast.POSITION.TOP_RIGHT,
-        //   });
-        // } else {
-        //   toast.success("Your account has created successfully !", {
-        //     position: toast.POSITION.TOP_RIGHT,
-        //   });
-
-        // handleCreateSite();
-
-        //   setTimeout(() => location.replace(process.env.NEXT_PUBLIC_REDIRECT), 2000);
-
-        //   // handleLogin({ email: params.email, password: params.password })
-        // }
+    
       })
       .catch((err) => {
         console.log(err);
@@ -160,7 +145,7 @@ export default function Signup() {
   });
 
   if (gdata.email_verified == true) {
-    console.log(333);
+    console.log('verified email');
   }
 
   return (
@@ -323,11 +308,11 @@ export default function Signup() {
     </p> */}
             <p className="text-gray-700 text-sm mt-5 text-center">
               Already have a Lapaas ID?{" "}
-              <a href="#">
+              <Link href="/login">
                 <span className="text-teal-500 hover:underline cursor-pointer">
                   Log in
                 </span>
-              </a>
+              </Link>
             </p>
             {/* <div className="font-medium text-sm flex justify-end items-center text-gray-700 gap-8 mt-16">
       <p className="cursor-pointer">Help</p>

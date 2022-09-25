@@ -42,7 +42,7 @@ export default function Navbar() {
                   Consultation
                 </li>
               </Link>
-              <Link href={"/blog"}>
+              <Link href={process.env.NEXT_PUBLIC_BLOG_ADDRESS} target="_blank">
                 <li className="cursor-pointer hover:text-pinkDark transition-all duration-300 ease-in-out">
                   Blog
                 </li>
