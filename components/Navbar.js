@@ -11,11 +11,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <nav className="flex justify-between pt-5 items-center container mx-auto px-10 border-b-[3px] border-textColor pb-4">
+      <nav className="flex justify-between pt-5 items-center container mx-auto px-2 md:px-6 border-b-[3px] border-textColor pb-4">
         <Link href={"/"}>
           <div className="flex justify-center place-items-end">
-            <img src="/Logo.png" className="h-14" alt="Logo" />
-            <h2 className="text-4xl cursor-pointer text-textColor">LAPAAS</h2>
+            <img src="/Logo.png" className="h-12" alt="Logo" />
+            <h2 className="text-3xl md:text-4xl cursor-pointer text-textColor">
+              LAPAAS
+            </h2>
           </div>
         </Link>
         {/* <LapaasLogo /> */}

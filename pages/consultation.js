@@ -42,7 +42,7 @@ export default function Consultancy() {
                   </button>
                 </Link> */}
                 <Link href="#pricing" passHref>
-                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none  rounded-full text-base md:text-lg uppercase">
+                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none  rounded-sm text-base md:text-lg uppercase">
                     Get Quote
                   </button>
                 </Link>

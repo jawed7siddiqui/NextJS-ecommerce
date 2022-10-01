@@ -3,12 +3,13 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import HeroSVG from "../components/svg/HeroSVG";
 import "aos/dist/aos.css";
+import { Tooltip } from "@material-tailwind/react";
 
 export default function Services() {
   return (
     <Layout>
       {/* Hero  */}
-      <section className=" dark:bg-lightGray py-14 md:py-14 ">
+      <section className=" dark:bg-lightGray py-14 md:py-14">
         <div className="text-textColor dark:text-white">
           <div className="flex px-5 md:px-32 md:flex-row flex-col items-center">
             <div className="lg:flex-grow md:w-1/2 lg:pr-10 md:pr-16 flex flex-col md:items-start md:text-left md:mb-0 items-center text-center w-full">
@@ -36,12 +37,12 @@ export default function Services() {
                 data-aos-duration="800"
               >
                 <Link href="#pricing" passHref>
-                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none rounded-full text-base md:text-lg uppercase">
+                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none rounded-sm text-base md:text-lg uppercase">
                     Services
                   </button>
                 </Link>
                 <Link href="#pricing" passHref>
-                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none  rounded-full text-base md:text-lg uppercase">
+                  <button className="flex justify-center items-center text-white bg-pinkDark border-0 py-2 md:py-3 px-5 md:px-10 focus:outline-none  rounded-sm text-base md:text-lg uppercase">
                     Get Quote
                   </button>
                 </Link>
@@ -232,7 +233,7 @@ export default function Services() {
         </div>
       </section>
       {/* Section  */}
-      <section className=" dark:bg-lightGray py-20 md:py-24 ">
+      <section className=" dark:bg-lightGray py-20 md:py-24">
         <div className="text-textColor dark:text-white">
           <div className="flex px-5 md:px-32 md:flex-row flex-col items-center">
             <div className="lg:flex-grow md:w-1/2 lg:pr-10 md:pr-16 flex flex-col md:items-start md:text-left md:mb-0 items-center text-center w-full">
@@ -435,8 +436,27 @@ export default function Services() {
               className="flex flex-col p-/ mx-auto max-w-2xl transition duration-500 ease-out w-full text-center py-7 px-5 space-y-1 md:space-y-3 bg-textColor rounded-lg shadow-xl dark:border-slate-600 xl:p-10 dark:bg-slate-800 dark:text-white"
             >
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
                   CAC
+                  <Tooltip content="Abhishek">
+                    <svg
+                      aria-haspopup="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={25}
+                      height={25}
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#fff"
+                      fill="none"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" />
+                      <circle cx={12} cy={12} r={9} />
+                      <line x1={12} y1={8} x2="12.01" y2={8} />
+                      <polyline points="11 12 12 12 12 16 13 16" />
+                    </svg>
+                  </Tooltip>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -446,8 +466,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  AOV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  AOV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -457,8 +494,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  AOV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  AOV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -468,8 +522,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  CR
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  CR{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -479,8 +550,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  LTV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  LTV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -490,8 +578,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  ORDER
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  ORDER{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -501,8 +606,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  TRAFFIC
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  TRAFFIC{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -519,8 +641,25 @@ export default function Services() {
               className="flex flex-col p-/ mx-auto max-w-2xl transition duration-500 ease-out w-full text-center py-7 px-5 space-y-1 md:space-y-3 bg-textColor rounded-lg shadow-xl dark:border-slate-600 xl:p-10 dark:bg-slate-800 dark:text-white"
             >
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  CAC
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  CAC{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -530,8 +669,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  AOV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  AOV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -541,8 +697,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  AOV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  AOV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -552,8 +725,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  CR
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  CR{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -563,8 +753,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  LTV
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  LTV{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -574,8 +781,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  ORDER
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  ORDER{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
@@ -585,8 +809,25 @@ export default function Services() {
                 </div>
               </div>
               <div className="flex justify-between gap-7 items-center">
-                <div className="text-lg md:text-xl font-medium text-white uppercase">
-                  TRAFFIC
+                <div className="flex justify-center item-center gap-2 text-lg md:text-xl font-medium text-white uppercase">
+                  TRAFFIC{" "}
+                  <svg
+                    aria-haspopup="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width={25}
+                    height={25}
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#fff"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />
+                    <circle cx={12} cy={12} r={9} />
+                    <line x1={12} y1={8} x2="12.01" y2={8} />
+                    <polyline points="11 12 12 12 12 16 13 16" />
+                  </svg>
                 </div>
                 <div className="w-4/6 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                   <div
