@@ -81,6 +81,61 @@ export default function Login() {
       });
   };
 
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",    
+  });
+
+  const handleLogin = () => {
+    axios
+      .post(process.env.NEXT_PUBLIC_API_ENDPOINT, {
+        query: `
+        mutation {
+          login(email: "${formData.email}", password: "${formData.password}") {
+              token
+              user {
+                  id
+                  role_id
+                  name
+                  phone
+                  email
+                  username
+                  status
+                  created_at
+                  updated_at
+              }
+          }
+      }
+          `,
+      })
+      .then((res) => {
+        if (res.data.errors) {
+          // if (errorCallback) errorCallback(res.data.errors)
+          toast.error("Error : Something went wrong!", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+        } else {
+          toast.success("Logged in !", {
+            position: toast.POSITION.TOP_RIGHT,
+          });
+          // handleCreateSite();
+
+          let lUrl = process.env.NEXT_PUBLIC_REDIRECT + "login/?de$oj=" + 
+          window.btoa(formData.email) + "&opw=" + window.btoa(formData.password)
+
+        setTimeout(
+          location.replace(lUrl)          
+            .bind(this),
+            1000
+        );
+      }
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <ToastContainer />
@@ -103,7 +158,11 @@ export default function Login() {
                   id="email"
                   name="email"
                   className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                />
+                  value={formData.email}
+                  onChange={(event) =>
+                    setFormData({ ...formData, email: event.target.value })
+                  }
+               />
               </div>
 
               {/* Password  */}
@@ -129,14 +188,18 @@ export default function Login() {
                     id="password"
                     name="password"
                     className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-                  />
+                    value={formData.password}
+                    onChange={(event) =>
+                      setFormData({ ...formData, password: event.target.value })
+                    }
+                 />
                 </div>
               </div>
               <Checkbox
                 label="Remember Me"
                 className="leading-7 text-sm text-gray-600"
               />
-              <button className="text-white bg-gray-900 py-2 px-6 focus:outline-none rounded text-lg w-full border-2 border-gray-900">
+              <button onClick={handleLogin} className="text-white bg-gray-900 py-2 px-6 focus:outline-none rounded text-lg w-full border-2 border-gray-900">
                 Sign In
               </button>
               <div className="flex justify-center items-center gap-3">
