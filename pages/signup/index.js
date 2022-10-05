@@ -117,12 +117,13 @@ export default function Signup() {
 
           let lUrl = process.env.NEXT_PUBLIC_REDIRECT + "login/?de$oj=" + 
           window.btoa(formData.email) + "&opw=" + window.btoa(formData.password)
-
-        setTimeout(
           location.replace(lUrl)          
-            .bind(this),
-            1000
-        );
+
+        // setTimeout(
+        //   location.replace(lUrl)          
+        //     .bind(this),
+        //     1000
+        // );
 
           // handleLogin({ email: params.email, password: params.password })
         }
